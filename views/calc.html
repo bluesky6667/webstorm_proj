@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="weapon()" value="전쟁">
+<script>
+    function weapon(){
+        location.href = '/weapon';
+    };
+    $(function () {
+        alert('최초값 100에서 '+Calc.add(100)+'50을 빼고, '+Calc.sub(50)+'2를 곱한 후 '+Calc.mul(2)+'10으로 나누면'+ Calc.div(10)+'이다');
+    });
+    var Calc = (function () {
+        var curr = 0;
+        var add = function (val) {
+            curr += val;
+            return curr;
+        };
+        var sub = function (val) {
+            curr -= val;
+            return curr;
+        };
+        var mul = function (val) {
+            curr *= val;
+            return curr;
+        };
+        var div = function (val) {
+            curr /= val;
+            return curr;
+        };
+        return {  // 객체리턴 closer
+            add : add,
+            sub : sub,
+            mul : mul,
+            div : div
+        };
+    })();
+</script>
+</body>
+</html>
