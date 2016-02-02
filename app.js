@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var iife = require('./routes/iife');
 var calc = require('./routes/calc');
 var weapon = require('./routes/weapon');
+var prototypes = require('./routes/prototypes');
 
 var app = express();
 
@@ -25,10 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/prototypes', prototypes);
 app.use('/iife', iife);
 app.use('/calc', calc);
 app.use('/weapon', weapon);
 app.use('/users', users);
+app.use('/index', routes);
 app.use('/', function(req,res){
   res.sendfile(__dirname + '/views/index.html');
 });
